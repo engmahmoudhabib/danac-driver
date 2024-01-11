@@ -73,7 +73,7 @@ class AgentHomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            GetStorage().read('env') == 'driver'
+                            GetStorage().read('env') == 'driver' || GetStorage().read('env') == 'proxy'
                                 ? SizedBox.shrink()
                                 : Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +143,7 @@ class AgentHomeScreen extends StatelessWidget {
                         ),
                       )
                     : Column(
-                        children: GetStorage().read('env') == 'driver'
+                        children: GetStorage().read('env') == 'driver' || GetStorage().read('env') == 'proxy'
                             ? [
                                 SizedBox(
                                   height:
@@ -319,7 +319,7 @@ class AgentHomeScreen extends StatelessWidget {
                                                                         InkWell(
                                                                       onTap:
                                                                           () {
-                                                                    controller.getDriverOrder(controller
+                                                                        controller.getDriverOrder(controller
                                                                             .driverOrders[index]
                                                                             .id);
                                                                         PersistentNavBarNavigator
@@ -368,7 +368,7 @@ class AgentHomeScreen extends StatelessWidget {
                                                                                       text: TextSpan(
                                                                                         children: [
                                                                                           TextSpan(
-                                                                                            text: controller.driverOrders[index].outputReceipt.date,
+                                                                                            text: controller.driverOrders[index].outputReceipt.date.substring(0 ,controller.driverOrders[index].outputReceipt.date.indexOf('T') ),
                                                                                             style: TextStyle(
                                                                                               color: Colors.black,
                                                                                               fontSize: 16,
@@ -577,7 +577,7 @@ class AgentHomeScreen extends StatelessWidget {
                                                                                       text: TextSpan(
                                                                                         children: [
                                                                                           TextSpan(
-                                                                                            text: controller.driverOrders[index].outputReceipt.date,
+                                                                                            text: controller.driverOrders[index].outputReceipt.date.substring(0 ,controller.driverOrders[index].outputReceipt.date.indexOf('T') ),
                                                                                             style: TextStyle(
                                                                                               color: Colors.black,
                                                                                               fontSize: 16,
@@ -776,15 +776,22 @@ class AgentHomeScreen extends StatelessWidget {
                                                                             15.0),
                                                                   ),
                                                                   child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            15.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      i.image,
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets
+                                                                            .all(
+                                                                            8.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              15.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        i.image,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1017,15 +1024,22 @@ class AgentHomeScreen extends StatelessWidget {
                                                                             15.0),
                                                                   ),
                                                                   child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            15.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      i.image,
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets
+                                                                            .all(
+                                                                            8.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              15.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        i.image,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1258,15 +1272,22 @@ class AgentHomeScreen extends StatelessWidget {
                                                                             15.0),
                                                                   ),
                                                                   child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            15.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      i.image,
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets
+                                                                            .all(
+                                                                            8.0),
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              15.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        i.image,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1409,14 +1430,16 @@ class AgentHomeScreen extends StatelessWidget {
                                             child: GridView.count(
                                               primary: false,
                                               crossAxisCount: 3,
-                                              childAspectRatio: 4 / 5.8,
+                                              crossAxisSpacing: 5,
+                                              childAspectRatio: 3.5 / 5.8,
                                               children: List.generate(
                                                   controller.searchProducts
                                                       .length, (index) {
                                                 return Stack(
                                                   children: [
                                                     SizedBox(
-                                                      height: 200,
+                                                      height: 150,
+                                                      width:double.infinity,
                                                       child: InkWell(
                                                         onTap: () {
                                                           PersistentNavBarNavigator
@@ -1476,32 +1499,40 @@ class AgentHomeScreen extends StatelessWidget {
                                                                     .circular(
                                                                         15.0),
                                                           ),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        15.0),
-                                                            child:
-                                                                Image.network(
-                                                              controller
-                                                                  .searchProducts[
-                                                                      index]
-                                                                  .image,
-                                                              fit: BoxFit.cover,
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(8.0),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          15.0),
+                                                              child:
+                                                                  Image.network(
+                                                                controller
+                                                                    .searchProducts[
+                                                                        index]
+                                                                    .image,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
+
                                                     Positioned(
-                                                      top: 140,
+                                                      top: 160,
+                                                      right: 5,
                                                       child: FadeInLeft(
                                                         child: SizedBox(
                                                           width: MediaQuery.of(
                                                                       context)
                                                                   .size
                                                                   .width *
-                                                              0.3,
+                                                              0.27,
                                                           height: 29,
                                                           child: ElevatedButton(
                                                             onPressed: () {},

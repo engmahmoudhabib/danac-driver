@@ -63,6 +63,7 @@ class MyLocale implements Translations {
           'alarm_lower': 'تنبيه عندما تقل الكمية عن :',
           'alarm_upper': 'تنبيه عندما تزيد الكمية عن :',
           'cat': 'التصنيف',
+          'follow_order_on_map': 'تتبع الطلب على الخريطة',
           'notes': 'ملاحظات',
           'dont_have_account': 'ليس لديك حساب؟',
           'create_account': 'إنشاء حساب',
@@ -120,13 +121,14 @@ class MyLocale implements Translations {
           'product_edited_successfully': 'تم تعديل المنتح بنجاح',
           'supplier_added_successfully': "تم إضافة المورد بنجاح",
           'edit_supplier': 'تعديل مورد',
+          'accept_and_continue': "قبول و متابعة",
           'supplier_edited_successfully': 'تم تعديل المورد بنجاح',
           'supplier_deleted_successfully': 'تم حذف المورد بنجاح',
           'client_deleted_successfully': 'تم حذف العميل بنجاح',
           'client_added_successfully': 'تم إضافة العميل بنجاح',
           'client_edited_successfully': 'تم تعديل العميل بنجاح',
           'done': 'تم',
-          'profile_updated':'تم تحديث الملف الشخصي بنجاح',
+          'profile_updated': 'تم تحديث الملف الشخصي بنجاح',
           'rem_amt': 'المبلغ المتبقي',
           'invoice_save_with_num': 'تم حفظ وصل التسليم رقم',
           'invoive_details': 'تفاصيل الوصل',
@@ -154,7 +156,7 @@ class MyLocale implements Translations {
           'settings2': 'اللغة, الإشعارات , الملف الشخصي',
           'my_orders': 'طلباتي',
           'points': 'نقطة',
-          'notifications':'الإشعارات',
+          'notifications': 'الإشعارات',
           'points_expired': 'ستنتهي صلاحية النقاط في ',
           'orders_num': 'عدد الطلبات',
           'order_number': 'رقم الطلب',
@@ -221,9 +223,11 @@ class MyLocale implements Translations {
           'client_address': 'عنوان العميل',
           'new_orders': 'الطلبات الجديدة',
           'old_orders': 'الطلبات السابقة',
-          'client_data' :'بيانات العميل' , 
-          'order_address' :'عنوان التوصيل' , 
-          'city':'العنوان'
+          'client_data': 'بيانات العميل',
+          'order_address': 'عنوان التوصيل',
+          'city': 'العنوان',
+          'location_tracking': 'تتبع الموقع' , 
+          'Background location in progress': 'يتم الآن تتبع موقعكم'
         },
         "fr_FR": {
           "login": 'Se Connecter',
@@ -447,12 +451,18 @@ class MyLocale implements Translations {
           "The changed image Profile has been successfully.":
               ' Votre photo de profil a été modifiée avec succès',
           'client_phone': 'Numéro de téléphone du client',
-          'client_address': 'Adresse du client','new_orders': 'Nouvelles commandes',   'old_orders':'Commandes précédentes' , 
-           'client_data' : 'Données client' , 
-            'order_address' : 'Adresse de livraison' , 
-            'notifications' :'Notifications' , 
-             'profile_updated': 'Le profil a été mis à jour avec succès' , 
-              'city': "l'adresse"
+          'client_address': 'Adresse du client',
+          'new_orders': 'Nouvelles commandes',
+          'old_orders': 'Commandes précédentes',
+          'client_data': 'Données client',
+          'order_address': 'Adresse de livraison',
+          'notifications': 'Notifications',
+          'profile_updated': 'Le profil a été mis à jour avec succès',
+          'city': "l'adresse",
+          'follow_order_on_map': "Suivre la commande sur la carte",
+          'accept_and_continue': "Accepter et suivre",
+          'location_tracking': 'Suivi de localisation' , 
+          'Background location in progress' : 'Votre position est suivie'
         }
       };
 }

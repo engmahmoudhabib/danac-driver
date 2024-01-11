@@ -73,8 +73,7 @@ class PointsProvider extends GetConnect {
   }
 
   Future<Either<List<GetDriverOrdersListResponseModel>, String?>>
-      getDriverOrders( oldOrNew) async {
-
+      getDriverOrders(oldOrNew) async {
     try {
       final response = await get(
         API.driverOrdersURL + '$oldOrNew/',
@@ -94,7 +93,7 @@ class PointsProvider extends GetConnect {
         return Right(response.statusText);
       }
     } catch (e) {
-  
+      
       return Right('An error occurred: $e');
     }
   }

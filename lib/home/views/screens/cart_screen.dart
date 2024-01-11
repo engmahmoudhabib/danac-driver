@@ -134,7 +134,7 @@ class CartScreen extends StatelessWidget {
                                                                           .size
                                                                           .width *
                                                                       0.2,
-                                                                  height: 120,
+                                                                  height: 75,
                                                                   child: Card(
                                                                     elevation:
                                                                         5,
@@ -144,15 +144,25 @@ class CartScreen extends StatelessWidget {
                                                                           BorderRadius.circular(
                                                                               15.0),
                                                                     ),
-                                                                    child: Image
-                                                                        .network(
-                                                                      controller
-                                                                          .cartItems[
-                                                                              index]
-                                                                          .products
-                                                                          .image,
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsets
+                                                                          .all(
+                                                                          8.0),
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(10.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          controller
+                                                                              .cartItems[index]
+                                                                              .products
+                                                                              .image,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -244,11 +254,11 @@ class CartScreen extends StatelessWidget {
                                                                               context)
                                                                           .size
                                                                           .height *
-                                                                      0.05,
+                                                                      0.035,
                                                                 ),
                                                                 Container(
-                                                                  height: 30,
-                                                                  width: 100,
+                                                                  height: 40,
+                                                                  width: 120,
                                                                   child: Card(
                                                                     elevation:
                                                                         5,
@@ -325,7 +335,7 @@ class CartScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         Text(
-                                          'rem_amt'.tr,
+                                          'tota'.tr,
                                           style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 18,
@@ -491,7 +501,6 @@ class CartScreen extends StatelessWidget {
                                                                       controller
                                                                           .cartMedium2Items[
                                                                               index]
-                                                                          
                                                                           .image,
                                                                       fit: BoxFit
                                                                           .cover,
@@ -667,7 +676,7 @@ class CartScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         Text(
-                                          'rem_amt'.tr,
+                                          'tota'.tr,
                                           style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 18,

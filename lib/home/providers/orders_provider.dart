@@ -56,11 +56,14 @@ class OrderProvider extends GetConnect {
         },
       );
       if (response.status.isOk) {
+       
         return Left(GetDriverOrderResponseModel.fromJson(response.body));
       } else {
+       
         return Right(response.body);
       }
     } catch (e) {
+  
       return Right(e.toString());
     }
   }

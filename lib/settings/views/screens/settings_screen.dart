@@ -10,6 +10,7 @@ import 'package:storeapp/home/controllers/home_controller.dart';
 import 'package:storeapp/home/views/screens/agent_settings_screen.dart';
 import 'package:storeapp/home/views/screens/my_orders_screen.dart';
 import 'package:storeapp/home/views/screens/my_points_screen.dart';
+import 'package:storeapp/home/views/screens/profile_screen.dart';
 import 'package:storeapp/settings/views/screens/language_screen.dart';
 import 'package:storeapp/settings/views/widgets/logout_dialog.dart';
 
@@ -24,15 +25,7 @@ class SettingsScreen extends StatelessWidget {
               elevation: 5,
               centerTitle: true,
               backgroundColor: Colors.white,
-              leading: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                ),
-              ),
+            
               title: Text(
                 'Settings'.tr,
                 style: TextStyle(
@@ -57,6 +50,7 @@ class SettingsScreen extends StatelessWidget {
                       if (index == 2) {
                         logout();
                       } else if (index == 1) {
+                      
                         PersistentNavBarNavigator.pushNewScreen(
                           context,
                           screen: LanguageScreen(),
@@ -64,6 +58,14 @@ class SettingsScreen extends StatelessWidget {
                           pageTransitionAnimation:
                               PageTransitionAnimation.cupertino,
                         );
+                      } else if(index==0){
+                          PersistentNavBarNavigator.pushNewScreen(
+                        context,
+                        screen: ProfileScreen(),
+                        withNavBar: true,
+                        pageTransitionAnimation:
+                            PageTransitionAnimation.cupertino,
+                      );
                       }
                     },
                     leading: index == 0
@@ -179,14 +181,7 @@ class SettingsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          /*  subtitle: Text(
-                            'mahmoud@gmail.com',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ), */
+                     
                           leading: Container(
                             width: 100,
                             height: 100,

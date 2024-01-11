@@ -185,10 +185,10 @@ class _MapScreenState extends State<MapScreen> {
                   children: [
                     TileLayer(
                       urlTemplate:
-                          'https://api.mapbox.com/styles/v1/mahmoudhabib/clqjpcx4v00n201o36nb8gfip/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFobW91ZGhhYmliIiwiYSI6ImNscWpuMDQxdzI3ZDcyaW1lMmo0cHM4ZnAifQ.oyF5f0Hnu5LO2BxskCUIkQ',
+                          'https://api.mapbox.com/styles/v1/mahmoudhabib/clqjpcx4v00n201o36nb8gfip/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWFobW91ZGhhYmliIiwiYSI6ImNscXh6YWtiZzA0bDQycGxsOGF0dmJzc3YifQ.m-x2FCK7JR_XikXNH5RH5w',
                       additionalOptions: {
                         'accessToken':
-                            'pk.eyJ1IjoibWFobW91ZGhhYmliIiwiYSI6ImNscWpuMDQxdzI3ZDcyaW1lMmo0cHM4ZnAifQ.oyF5f0Hnu5LO2BxskCUIkQ',
+                            'pk.eyJ1IjoibWFobW91ZGhhYmliIiwiYSI6ImNscXh6YWtiZzA0bDQycGxsOGF0dmJzc3YifQ.m-x2FCK7JR_XikXNH5RH5w',
                         'id': 'mapbox.mapbox-streets-v8',
                       },
                       subdomains: ['a', 'b', 'c'],

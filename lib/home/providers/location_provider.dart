@@ -10,7 +10,7 @@ class LocationProvider extends GetConnect {
     try {
       final response = await put(
         API.updateLocationURL ,
-        {"x": lat, "y": lng},
+        {"x": lng, "y": lat},
         headers: {
           'Authorization': 'Bearer ' + GetStorage().read('access'),
         },

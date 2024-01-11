@@ -277,7 +277,7 @@ class ProductDetailsScreen extends StatelessWidget {
                           onPressed: () {
                             if (GetStorage().read('env') == 'agent') {
                               controller.addToCart(context, id);
-                            } else if (GetStorage().read('env') == 'driver') {
+                            } else if (GetStorage().read('env') == 'proxy') {
                               controller.addToMedium2(context, id);
                             } 
                           },

@@ -18,7 +18,7 @@
 			<string>pk.eyJ1IjoibWFobW91ZGhhYmliIiwiYSI6ImNscWpuMDQxdzI3ZDcyaW1lMmo0cHM4ZnAifQ.oyF5f0Hnu5LO2BxskCUIkQ</string>
 		</dict>
 		<key>CFBundleDisplayName</key>
-		<string>DANAC CLIENT</string>
+		<string>DANAC DRIVER</string>
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>choose Photos of Products from library</string>
 		<key>NSCameraUsageDescription</key>

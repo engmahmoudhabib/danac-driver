@@ -16,14 +16,14 @@ class ParentScreen extends StatelessWidget {
         /*  if (value == 1) {
           controller.getProductsByCategory(0);
         } */
-        if (value == 0) {
+        /* if (value == 0) {
           controller.getSpecialProducts();
-        } else if (value == 1) {
-          controller.getProductsByCategory(0);
-        } else if (value == 3) {
+        } else */ if (value == 1) {
+          controller. getProductsByCategory(controller.productsCategories[0].name);
+        }/*  else if (value == 3) {
           controller.getOrders();
           controller.getMyPoints();
-        } else if (value == 2) {
+        } */ else if (value == 2) {
           controller.getNotifications();
         }
       },

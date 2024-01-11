@@ -1,78 +1,140 @@
+// ignore_for_file: unused_field, must_be_immutable
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:location/location.dart';
-
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:get/get.dart';
+import 'package:flutter_mapbox_navigation/flutter_mapbox_navigation.dart';
 import 'package:storeapp/core/colors.dart';
+import 'package:storeapp/core/images.dart';
 
-class NavigationScreen extends StatefulWidget {
-  const NavigationScreen({super.key});
+class NavigationScreen extends StatelessWidget {
+  double lat;
+  double long;
+  double sourceLat;
+  double sourceLng;
+  NavigationScreen({
+    super.key,
+    required this.lat,
+    required this.long,
+    required this.sourceLat,
+    required this.sourceLng,
+  });
 
-  @override
-  State<NavigationScreen> createState() => _NavigationScreenState();
-}
-
-class _NavigationScreenState extends State<NavigationScreen> {
-  Location _location = Location();
-  bool? _serviceEnabled;
-  PermissionStatus? _permissionGranted;
-  LatLng? _currentLatLng;
-  late CameraPosition _initialCameraPosition;
-  late MapboxMapController controller;
-
-  checkUserLocation() async {
-    _serviceEnabled = await _location.serviceEnabled();
-    if (!_serviceEnabled!) {
-      _serviceEnabled = await _location.requestService();
-    }
-    _permissionGranted = await _location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await _location.requestPermission();
-    }
-    LocationData _locationData = await _location.getLocation();
-    setState(() {
-      _currentLatLng =
-          LatLng(_locationData.latitude!, _locationData.longitude!);
-      _initialCameraPosition =
-          CameraPosition(target: _currentLatLng!, zoom: 15);
-    });
-  }
-
-  _onMapCreated(MapboxMapController controller) async {
-    this.controller = controller;
-  }
-
-  @override
-  void initState() {
-    checkUserLocation();
-    super.initState();
+  void startNavigation() async {
+    final directions = MapBoxNavigation();
+    final routeOptions = MapBoxOptions(
+      initialLatitude: sourceLat,
+      initialLongitude: sourceLng,
+      zoom: 16.0,
+      tilt: 0.0,
+      bearing: 0.0,
+      enableRefresh: false,
+      alternatives: true,
+      voiceInstructionsEnabled: true,
+      bannerInstructionsEnabled: true,
+      allowsUTurnAtWayPoints: true,
+      mode: MapBoxNavigationMode.drivingWithTraffic,
+      mapStyleUrlDay: 'mapbox://styles/mapbox/streets-v9/',
+    );
+    directions.setDefaultOptions(routeOptions);
+    await directions.startNavigation(
+      wayPoints: [
+        WayPoint(
+          name: "Origin",
+          latitude: sourceLat,
+          longitude: sourceLng,
+        ),
+        WayPoint(
+          name: "Destination",
+          latitude: lat,
+          longitude: long,
+        ),
+      ],
+      options: MapBoxOptions(
+        mode: MapBoxNavigationMode.drivingWithTraffic,
+        simulateRoute: true,
+        language: Get.locale!.languageCode,
+        units: VoiceUnits.imperial,
+        allowsUTurnAtWayPoints: true,
+        animateBuildRoute: true,
+        alternatives: true,
+        bannerInstructionsEnabled: true,
+        enableRefresh: true,
+        isOptimized: true,
+        showEndOfRouteFeedback: true,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          controller.animateCamera(
-            CameraUpdate.newCameraPosition(
-              _initialCameraPosition,
-            ),
-          );
-        },
-        child: const Icon(Icons.my_location),
+      appBar: AppBar(
+        elevation: 5,
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
+        title: Text(
+          'follow_order'.tr,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
-      body: _currentLatLng == null
-          ? Center(
-              child: CircularProgressIndicator(color: AppColors.red),
-            )
-          : MapboxMap(
-              accessToken:
-                  "pk.eyJ1IjoibWFobW91ZGhhYmliIiwiYSI6ImNscXh6YWtiZzA0bDQycGxsOGF0dmJzc3YifQ.m-x2FCK7JR_XikXNH5RH5w",
-              initialCameraPosition: _initialCameraPosition,
-              onMapCreated: _onMapCreated,
-              myLocationEnabled: true,
-              myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
-              minMaxZoomPreference: MinMaxZoomPreference(14, 17),
-            ),
+      body: FadeInLeft(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.8,
+                child: Image.asset(AppImages.mapman),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: 45,
+                child: ElevatedButton(
+                  onPressed: () {
+                    startNavigation();
+                  },
+                  child: Text(
+                    'follow_order_on_map'.tr,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(AppColors.red),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50.0),
+                        side: BorderSide(
+                          color: AppColors.red,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
+

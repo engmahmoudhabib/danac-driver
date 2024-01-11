@@ -179,15 +179,8 @@ class MyPointsScreen extends StatelessWidget {
                                 PageTransitionAnimation.cupertino,
                           );
                         },
-                        title: Text(
-                          'what_to_do_with_my_points'.tr,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.red,
-                          ),
-                        ),
-                        subtitle: Text(
+                      
+                        leading: Text(
                           'how_to_use_my_points'.tr,
                           style: TextStyle(
                             fontSize: 18,

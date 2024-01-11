@@ -53,9 +53,11 @@ class CartProvider extends GetConnect {
       if (response.status.isOk) {
         return Left(AddToMediumTwoResponseModel.fromJson(response.body));
       } else {
+        print(response.body);
         return Right(response.body);
       }
     } catch (e) {
+      print(e.toString());
       return Right(e.toString());
     }
   }
@@ -155,14 +157,11 @@ class CartProvider extends GetConnect {
       );
 
       if (response.status.isOk) {
-         print(response.body);
         return Left(CreateOrderMediumTwoResponseModel.fromJson(response.body));
       } else {
-        print(response.body);
         return Right(response.body);
       }
     } catch (e) {
-       print(e.toString());
       return Right(e.toString());
     }
   }

@@ -27,5 +27,6 @@ class AppImages {
   static final String pin = 'assets/images/pin.png';
   static final String cart = 'assets/images/cart.png';
   static final String prise2 = 'assets/images/prise.jpg';
-   static final String waiting_account = 'assets/images/waiting_account.png';
+  static final String waiting_account = 'assets/images/waiting_account.png';
+  static final String mapman = 'assets/images/mapman.png';
 }

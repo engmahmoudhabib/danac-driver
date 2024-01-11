@@ -14,15 +14,7 @@ class NotificationsScreen extends StatelessWidget {
         elevation: 5,
         centerTitle: true,
         backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
+     
         title: Text(
           'notifications'.tr,
           style: TextStyle(
@@ -44,7 +36,7 @@ class NotificationsScreen extends StatelessWidget {
               RefreshIndicator(
                 onRefresh: () => controller.getNotifications(),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.8,
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: controller.isLoading.value == true
                       ? Center(

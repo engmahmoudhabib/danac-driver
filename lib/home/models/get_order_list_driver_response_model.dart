@@ -33,8 +33,9 @@ class GetDriverOrdersListResponseModel {
 }
 
 class OutputReceipt {
-  int? id;
+  int? id; 
   int? verifyCode;
+  String? address;
   String? phonenumber;
   double? recivePyement;
   double? discount;
@@ -45,7 +46,8 @@ class OutputReceipt {
   String? barcode;
   String? location;
   bool? delivered;
-  int? client;
+  int? client; 
+  String? clientName; 
   int? employee;
   List<int>? products;
 
@@ -60,21 +62,25 @@ class OutputReceipt {
       this.remainingAmount,
       this.date,
       this.barcode,
+      this.address,
       this.location,
       this.delivered,
+      this.clientName,
       this.client,
       this.employee,
       this.products});
 
   OutputReceipt.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    verifyCode = json['verify_code'];
+    verifyCode = json['verify_code'] ?? 0;
     phonenumber = json['phonenumber'];
-    recivePyement = double.parse(json['recive_pyement'].toString());
-    discount = double.parse(json['discount'].toString());
-    reclaimedProducts = double.parse(json['Reclaimed_products'].toString());
-    previousDepts = double.parse(json['previous_depts'].toString());
-    remainingAmount = double.parse(json['remaining_amount'].toString());
+    clientName = json['client_name'];
+    address = json['address'];
+    recivePyement = double.parse(json['recive_pyement'] != null ?json['recive_pyement'].toString() : '0.0');
+    discount = double.parse(json['discount'] != null ?json['discount'].toString(): '0.0');
+    reclaimedProducts = double.parse(json['Reclaimed_products'] != null ?json['Reclaimed_products'].toString(): '0.0');
+    previousDepts = double.parse(json['previous_depts'] != null ?json['previous_depts'].toString(): '0.0');
+    remainingAmount = double.parse(json['remaining_amount'] != null ?json['remaining_amount'].toString(): '0.0');
     date = json['date'];
     barcode = json['barcode'];
     location = json['location'];

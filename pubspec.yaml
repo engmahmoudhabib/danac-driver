@@ -22,7 +22,6 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   flutter_staggered_animations: ^1.1.1
   get_storage: ^2.1.1
-  #http: ^0.13.6
   image_picker: ^1.0.5
   dartz: ^0.10.1
   #flutter_launcher_icons: ^0.13.1
@@ -41,7 +40,6 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_messaging: ^14.7.9
   google_maps_flutter: ^2.5.0
-  flutter_polyline_points: ^1.0.0
   geocoder2: ^1.4.0
   location: ^5.0.3
   google_places_for_flutter: ^1.0.1
@@ -49,7 +47,10 @@ dependencies:
   dio: ^5.4.0
   google_maps_utils: ^2.0.0+1
   flutter_html: ^3.0.0-beta.2
-  mapbox_gl: ^0.16.0
+  flutter_mapbox_navigation: ^0.2.2
+
+
+ 
 
  
 
