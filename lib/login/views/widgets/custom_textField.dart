@@ -42,7 +42,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       height: 48,
       child: Material(
         elevation: 10.0,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(10),
         child: TextField(
           controller: widget.controller,
           onChanged:  widget.onChange,
@@ -75,13 +75,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 : null,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(width: 0.5, color: Colors.transparent),
-              borderRadius: BorderRadius.circular(50.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(width: 3, color: AppColors.red),
-              borderRadius: BorderRadius.circular(50.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
-            hintText: widget.hint,
+            //hintText: widget.hint,
+            labelText: widget.hint,
+            labelStyle: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+            ),
             hintStyle: TextStyle(
               color: Colors.grey,
               fontWeight: FontWeight.w400,
