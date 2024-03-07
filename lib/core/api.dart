@@ -1,7 +1,7 @@
 class API {
   API._();
 
-  static final _baseURL = 'http://85.31.237.33/api/';
+  static final _baseURL = 'your_url';
   static final loginURL = _baseURL + 'auth/log-in/';
   static final signUpURL = _baseURL + 'auth/sign-up/';
   static final categoriesURL = _baseURL + 'categories/';
